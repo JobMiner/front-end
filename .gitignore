@@ -1,0 +1,12 @@
+# Mac stuffs
+.DS_Store
+
+# Key stuffs
+key.py
+
+# Python stuffs
+venv/
+*.pyc
+
+# PyCharm stuffs
+.idea/
