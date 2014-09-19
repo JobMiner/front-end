@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from fetch.models import Creator
+from fetch.models import Creator, Listing
 
 # Create your views here.
 def home_page(request):
     context = {
-        'creators' : Creator.objects.all()
+        'creators' : Creator.objects.all(),
+        'count': Listing.objects.all().count(),
+        'unique': Listing.objects.all().distinct('employer').count(),
+        'listings': Listing.objects.all()
     }
-    return render(request, 'home_page.html', context)
+    return render(request, 'fetch.html', context)

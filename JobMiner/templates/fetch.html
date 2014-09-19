@@ -2,9 +2,32 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Fetch</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>
-
+<div class="container">
+    <div class="row">
+        <br/>
+        <h3>There are currently {{ count }} job listings,</h3><br/>
+        <h3>Of which, {{ unique }} have unique employers.</h3>
+        <table class="table table-striped table-bordered table-hover" style="table-layout: fixed;">
+            <tr>
+                <th>Job ID</th>
+                <th>Employer</th>
+                <th>Location</th>
+                <th>Openings</th>
+            </tr>
+            {% for l in listings %}
+                <tr>
+                    <td>{{ l.job_id }}</td>
+                    <td>{{ l.employer }}</td>
+                    <td>{{ l.location }}</td>
+                    <td>{{ l.openings }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 </body>
 </html>
