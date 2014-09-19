@@ -6,7 +6,6 @@ def home_page(request):
     context = {
         'creators' : Creator.objects.all(),
         'count': Listing.objects.all().count(),
-        'unique': Listing.objects.all().distinct('employer').count(),
         'listings': Listing.objects.all()
     }
     return render(request, 'fetch.html', context)
